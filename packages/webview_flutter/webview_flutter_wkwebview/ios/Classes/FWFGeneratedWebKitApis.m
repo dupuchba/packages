@@ -588,7 +588,7 @@ static id GetNullableObjectAtIndex(NSArray *array, NSInteger key) {
 @implementation FWFWKWebsiteDataStoreHostApiCodecReader
 - (nullable id)readValueOfType:(UInt8)type {
   switch (type) {
-    case 128: 
+    case 128:
       return [FWFWKWebsiteDataTypeEnumData fromList:[self readValue]];
     default:
       return [super readValueOfType:type];
@@ -834,7 +834,7 @@ void FWFUIScrollViewHostApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSO
 @implementation FWFWKWebViewConfigurationHostApiCodecReader
 - (nullable id)readValueOfType:(UInt8)type {
   switch (type) {
-    case 128: 
+    case 128:
       return [FWFWKAudiovisualMediaTypeEnumData fromList:[self readValue]];
     default:
       return [super readValueOfType:type];
@@ -943,13 +943,13 @@ void FWFWKWebViewConfigurationHostApiSetup(id<FlutterBinaryMessenger> binaryMess
         binaryMessenger:binaryMessenger
         codec:FWFWKWebViewConfigurationHostApiGetCodec()];
     if (api) {
-      NSCAssert([api respondsToSelector:@selector(setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:islimited:error:)], @"FWFWKWebViewConfigurationHostApi api (%@) doesn't respond to @selector(setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:islimited:error:)", api);
+      NSCAssert([api respondsToSelector:@selector(setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:isLimited:error:)], @"FWFWKWebViewConfigurationHostApi api (%@) doesn't respond to @selector(setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:isLimited:error:)", api);
       [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
         NSArray *args = message;
         NSNumber *arg_identifier = GetNullableObjectAtIndex(args, 0);
         NSNumber *arg_limit = GetNullableObjectAtIndex(args, 1);
         FlutterError *error;
-        [api setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:arg_identifier islimited:arg_limit error:&error];
+        [api setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:arg_identifier isLimited:arg_limit error:&error];
         callback(wrapResult(nil, error));
       }];
     } else {
@@ -1013,9 +1013,9 @@ NSObject<FlutterMessageCodec> *FWFWKWebViewConfigurationFlutterApiGetCodec(void)
 @implementation FWFWKUserContentControllerHostApiCodecReader
 - (nullable id)readValueOfType:(UInt8)type {
   switch (type) {
-    case 128: 
+    case 128:
       return [FWFWKUserScriptData fromList:[self readValue]];
-    case 129: 
+    case 129:
       return [FWFWKUserScriptInjectionTimeEnumData fromList:[self readValue]];
     default:
       return [super readValueOfType:type];
@@ -1261,7 +1261,7 @@ void FWFWKScriptMessageHandlerHostApiSetup(id<FlutterBinaryMessenger> binaryMess
 @implementation FWFWKScriptMessageHandlerFlutterApiCodecReader
 - (nullable id)readValueOfType:(UInt8)type {
   switch (type) {
-    case 128: 
+    case 128:
       return [FWFWKScriptMessageData fromList:[self readValue]];
     default:
       return [super readValueOfType:type];
@@ -1360,15 +1360,15 @@ void FWFWKNavigationDelegateHostApiSetup(id<FlutterBinaryMessenger> binaryMessen
 @implementation FWFWKNavigationDelegateFlutterApiCodecReader
 - (nullable id)readValueOfType:(UInt8)type {
   switch (type) {
-    case 128: 
+    case 128:
       return [FWFNSErrorData fromList:[self readValue]];
-    case 129: 
+    case 129:
       return [FWFNSUrlRequestData fromList:[self readValue]];
-    case 130: 
+    case 130:
       return [FWFWKFrameInfoData fromList:[self readValue]];
-    case 131: 
+    case 131:
       return [FWFWKNavigationActionData fromList:[self readValue]];
-    case 132: 
+    case 132:
       return [FWFWKNavigationActionPolicyEnumData fromList:[self readValue]];
     default:
       return [super readValueOfType:type];
@@ -1503,7 +1503,7 @@ NSObject<FlutterMessageCodec> *FWFWKNavigationDelegateFlutterApiGetCodec(void) {
 @implementation FWFNSObjectHostApiCodecReader
 - (nullable id)readValueOfType:(UInt8)type {
   switch (type) {
-    case 128: 
+    case 128:
       return [FWFNSKeyValueObservingOptionsEnumData fromList:[self readValue]];
     default:
       return [super readValueOfType:type];
@@ -1614,9 +1614,9 @@ void FWFNSObjectHostApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSObjec
 @implementation FWFNSObjectFlutterApiCodecReader
 - (nullable id)readValueOfType:(UInt8)type {
   switch (type) {
-    case 128: 
+    case 128:
       return [FWFNSKeyValueChangeKeyEnumData fromList:[self readValue]];
-    case 129: 
+    case 129:
       return [FWFObjectOrIdentifier fromList:[self readValue]];
     default:
       return [super readValueOfType:type];
@@ -1701,41 +1701,41 @@ NSObject<FlutterMessageCodec> *FWFNSObjectFlutterApiGetCodec(void) {
 @implementation FWFWKWebViewHostApiCodecReader
 - (nullable id)readValueOfType:(UInt8)type {
   switch (type) {
-    case 128: 
+    case 128:
       return [FWFNSErrorData fromList:[self readValue]];
-    case 129: 
+    case 129:
       return [FWFNSHttpCookieData fromList:[self readValue]];
-    case 130: 
+    case 130:
       return [FWFNSHttpCookiePropertyKeyEnumData fromList:[self readValue]];
-    case 131: 
+    case 131:
       return [FWFNSKeyValueChangeKeyEnumData fromList:[self readValue]];
-    case 132: 
+    case 132:
       return [FWFNSKeyValueObservingOptionsEnumData fromList:[self readValue]];
-    case 133: 
+    case 133:
       return [FWFNSUrlRequestData fromList:[self readValue]];
-    case 134: 
+    case 134:
       return [FWFObjectOrIdentifier fromList:[self readValue]];
-    case 135: 
+    case 135:
       return [FWFWKAudiovisualMediaTypeEnumData fromList:[self readValue]];
-    case 136: 
+    case 136:
       return [FWFWKFrameInfoData fromList:[self readValue]];
-    case 137: 
+    case 137:
       return [FWFWKMediaCaptureTypeData fromList:[self readValue]];
-    case 138: 
+    case 138:
       return [FWFWKNavigationActionData fromList:[self readValue]];
-    case 139: 
+    case 139:
       return [FWFWKNavigationActionPolicyEnumData fromList:[self readValue]];
-    case 140: 
+    case 140:
       return [FWFWKPermissionDecisionData fromList:[self readValue]];
-    case 141: 
+    case 141:
       return [FWFWKScriptMessageData fromList:[self readValue]];
-    case 142: 
+    case 142:
       return [FWFWKSecurityOriginData fromList:[self readValue]];
-    case 143: 
+    case 143:
       return [FWFWKUserScriptData fromList:[self readValue]];
-    case 144: 
+    case 144:
       return [FWFWKUserScriptInjectionTimeEnumData fromList:[self readValue]];
-    case 145: 
+    case 145:
       return [FWFWKWebsiteDataTypeEnumData fromList:[self readValue]];
     default:
       return [super readValueOfType:type];
@@ -2216,17 +2216,17 @@ void FWFWKUIDelegateHostApiSetup(id<FlutterBinaryMessenger> binaryMessenger, NSO
 @implementation FWFWKUIDelegateFlutterApiCodecReader
 - (nullable id)readValueOfType:(UInt8)type {
   switch (type) {
-    case 128: 
+    case 128:
       return [FWFNSUrlRequestData fromList:[self readValue]];
-    case 129: 
+    case 129:
       return [FWFWKFrameInfoData fromList:[self readValue]];
-    case 130: 
+    case 130:
       return [FWFWKMediaCaptureTypeData fromList:[self readValue]];
-    case 131: 
+    case 131:
       return [FWFWKNavigationActionData fromList:[self readValue]];
-    case 132: 
+    case 132:
       return [FWFWKPermissionDecisionData fromList:[self readValue]];
-    case 133: 
+    case 133:
       return [FWFWKSecurityOriginData fromList:[self readValue]];
     default:
       return [super readValueOfType:type];
@@ -2324,9 +2324,9 @@ NSObject<FlutterMessageCodec> *FWFWKUIDelegateFlutterApiGetCodec(void) {
 @implementation FWFWKHttpCookieStoreHostApiCodecReader
 - (nullable id)readValueOfType:(UInt8)type {
   switch (type) {
-    case 128: 
+    case 128:
       return [FWFNSHttpCookieData fromList:[self readValue]];
-    case 129: 
+    case 129:
       return [FWFNSHttpCookiePropertyKeyEnumData fromList:[self readValue]];
     default:
       return [super readValueOfType:type];
@@ -2470,4 +2470,3 @@ NSObject<FlutterMessageCodec> *FWFNSUrlFlutterApiGetCodec(void) {
   }];
 }
 @end
-

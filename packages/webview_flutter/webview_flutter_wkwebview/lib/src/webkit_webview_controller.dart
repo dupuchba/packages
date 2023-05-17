@@ -69,7 +69,7 @@ class WebKitWebViewControllerCreationParams
       );
     }
     _configuration.setAllowsInlineMediaPlayback(allowsInlineMediaPlayback);
-    //_configuration.setLimitsNavigationsToAppBoundDomains(limitsNavigationsToAppBoundDomains);
+    _configuration.setLimitsNavigationsToAppBoundDomains(limitsNavigationsToAppBoundDomains);
   }
 
   /// Constructs a [WebKitWebViewControllerCreationParams] using a

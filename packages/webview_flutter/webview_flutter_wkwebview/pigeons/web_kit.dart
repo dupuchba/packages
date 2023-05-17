@@ -417,7 +417,7 @@ abstract class WKWebViewConfigurationHostApi {
   void setAllowsInlineMediaPlayback(int identifier, bool allow);
 
   @ObjCSelector(
-    'setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:islimited:',
+    'setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:isLimited:',
   )
   void setLimitsNavigationsToAppBoundDomains(int identifier, bool limit);
 
