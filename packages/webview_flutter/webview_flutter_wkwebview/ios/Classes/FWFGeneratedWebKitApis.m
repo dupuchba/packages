@@ -939,6 +939,26 @@ void FWFWKWebViewConfigurationHostApiSetup(id<FlutterBinaryMessenger> binaryMess
   {
     FlutterBasicMessageChannel *channel =
       [[FlutterBasicMessageChannel alloc]
+        initWithName:@"dev.flutter.pigeon.WKWebViewConfigurationHostApi.setLimitsNavigationsToAppBoundDomains"
+        binaryMessenger:binaryMessenger
+        codec:FWFWKWebViewConfigurationHostApiGetCodec()];
+    if (api) {
+      NSCAssert([api respondsToSelector:@selector(setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:islimited:error:)], @"FWFWKWebViewConfigurationHostApi api (%@) doesn't respond to @selector(setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:islimited:error:)", api);
+      [channel setMessageHandler:^(id _Nullable message, FlutterReply callback) {
+        NSArray *args = message;
+        NSNumber *arg_identifier = GetNullableObjectAtIndex(args, 0);
+        NSNumber *arg_limit = GetNullableObjectAtIndex(args, 1);
+        FlutterError *error;
+        [api setLimitsNavigationsToAppBoundDomainsForConfigurationWithIdentifier:arg_identifier islimited:arg_limit error:&error];
+        callback(wrapResult(nil, error));
+      }];
+    } else {
+      [channel setMessageHandler:nil];
+    }
+  }
+  {
+    FlutterBasicMessageChannel *channel =
+      [[FlutterBasicMessageChannel alloc]
         initWithName:@"dev.flutter.pigeon.WKWebViewConfigurationHostApi.setMediaTypesRequiringUserActionForPlayback"
         binaryMessenger:binaryMessenger
         codec:FWFWKWebViewConfigurationHostApiGetCodec()];
